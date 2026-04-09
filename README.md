@@ -118,26 +118,7 @@ python manage.py runserver 0.0.0.0:8000
 
 ---
 
-## ☁ Публикация на GitHub
-Убедитесь, что Git установлен (`git --version`). Затем создайте **пустой** репозиторий на GitHub и выполните:
-```powershell
-.\scripts\init_git.ps1 -RepoUrl "https://github.com/USER/wbtech_shop.git"
-```
-Скрипт:
-- инициализирует git-репозиторий,
-- создаёт первый коммит,
-- создаёт ветку `main`,
-- настраивает `origin`,
-- выполняет `git push`.
 
-### Что не попадёт в репозиторий
-В `.gitignore` добавлены:
-- `.venv/`, `.env`, `db.sqlite3`, `logs.txt`
-- `__pycache__/`, `*.pyc` и т. п.
-- `static/`, `media/`
-- файлы IDE.
-
----
 
 ## 🧱 Структура проекта
 ```text
