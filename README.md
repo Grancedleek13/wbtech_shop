@@ -1,46 +1,43 @@
-# WB—Tech Shop (Windows-first, SQLite by default)
+# WBTech Shop Backend
+Backend-сервис интернет-магазина на Django и Django REST Framework.  
+Реализованы аутентификация по JWT, работа с профилем пользователя, каталог товаров, корзина, оформление заказов и документация API через Swagger.
 
-Готовый учебный интернет-магазин на **Django + DRF** с **JWT-аутентификацией**, корзиной и заказами.
-Проект ориентирован на запуск в Windows без Docker (по умолчанию — **SQLite**). PostgreSQL — опционально.
+## Технологии
 
-## 📦 Состав
 - Python 3.11
-- Django 4.2, DRF
-- JWT (djangorestframework-simplejwt)
-- drf-spectacular (документация на `/api/docs/`)
-- Разделение логики: models / serializers / views / services
-- Базовые pytest-тесты
-- Скрипты PowerShell: установка, запуск, тесты, публикация в GitHub
+- Django 4.2
+- Django REST Framework
+- JWT authentication
+- PostgreSQL / SQLite
+- drf-spectacular (OpenAPI / Swagger)
+- Pytest
+- Docker
 
+## Основные возможности
+- Регистрация и аутентификация пользователей
+- JWT-доступ к защищенным endpoint’ам
+- Работа с профилем пользователя
+- Каталог товаров
+- Управление корзиной
+- Оформление заказов
+- Разграничение прав доступа для административных операций
+- Swagger UI для ручного тестирования API
+  
 ---
 
-## 🚀 Быстрый старт на Windows
-1) Разрешите скрипты (один раз):
-```powershell
-Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
-```
+## Local run
 
-2) Установка зависимостей и миграций (создаст `.venv`, поставит пакеты из `requirements-win.txt`, применит миграции, создаст админа):
+### Windows
+1. Install Python 3.11
+2. Create virtual environment
+3. Install dependencies from `requirements-win.txt`
+4. Apply migrations
+5. Run development server
+
+### Quick start
 ```powershell
 .\scripts\setup.ps1
-```
-
-3) Запуск сервера разработки:
-```powershell
-.\scriptsun.ps1
-```
-
-4) Откройте в браузере Swagger UI:
-```
-http://127.0.0.1:8000/api/docs/
-```
-
-Админ-панель:
-```
-http://127.0.0.1:8000/admin/
-```
-Логин/пароль: `admin / admin` (создаётся при установке, если отсутствует).
-
+.\scripts\run.ps1
 ---
 
 ## 🧭 Что умеет API
@@ -66,7 +63,22 @@ http://127.0.0.1:8000/admin/
 ## 🧪 Тесты
 ```powershell
 .\scripts	est.ps1
+
 ```
+
+
+## API overview
+
+- `POST /api/auth/register/` — user registration
+- `POST /api/auth/login/` — JWT login
+- `POST /api/auth/refresh/` — token refresh
+- `GET /api/auth/me/` — current user profile
+- `POST /api/auth/me/top-up/` — balance top-up
+- `/api/products/` — products API
+- `/api/cart/items/` — cart operations
+- `POST /api/orders/create-from-cart/` — create order from cart
+- `GET /api/orders/` — order history
+- 
 Присутствует интеграционный сценарий `tests/test_flow.py` (регистрация → логин → пополнение → товар → корзина → заказ).
 
 ---
