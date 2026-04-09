@@ -85,11 +85,14 @@ python manage.py runserver
 
 
 ### Docker запуск
+```
 docker compose up --build
-
+```
 
 ### Тестировние
+```
 pytest
+```
 
 ### Структура проекта
 ```
