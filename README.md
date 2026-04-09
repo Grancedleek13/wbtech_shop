@@ -84,7 +84,7 @@ python manage.py runserver
 ```
 
 
-### Docker запуск
+### Docker run
 ```
 docker compose up --build
 ```
