@@ -92,6 +92,7 @@ docker compose up --build
 pytest
 
 ### Структура проекта
+```
 wbtech_shop/
 ├── apps/           # бизнес-логика (users, products, orders)
 ├── config/         # настройки проекта
