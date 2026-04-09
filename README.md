@@ -81,3 +81,20 @@ python -m venv .venv
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
+```
+
+
+### Docker запуск
+docker compose up --build
+
+
+### Тестировние
+pytest
+
+### Структура проекта
+wbtech_shop/
+├── apps/           # бизнес-логика (users, products, orders)
+├── config/         # настройки проекта
+├── scripts/        # вспомогательные скрипты
+├── manage.py
+└── requirements.txt
